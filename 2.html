@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	</style>
+</head>
+<body>
+    <p id="message">whee!</p>
+	<script>
+        function addLoadEvent(func) { 
+            var oldonload = window.onload; 
+            if (typeof window.onload != 'function') { 
+                window.onload = func; 
+            } else { 
+            window.onload = function() { 
+                oldonload(); 
+                func(); 
+                } 
+            } 
+        } 
+        function posi() {
+            var elem=document.getElementById("message");
+            elem.style.position="absolute";
+            elem.style.left="50px";
+            elem.style.top="100px";
+            movee("message",200,100,10);
+        }
+        // function move() {
+        //     var elem=document.getElementById("message");
+        //     var xpos =parseInt(elem.style.left);
+        //     var ypos =parseInt(elem.style.top);
+        //     if (xpos==200 && ypos ==200) {
+        //         return true;
+        //      } 
+        //      if (xpos < 200) {
+        //         xpos++;
+        //      }
+        //      if (xpos >200) {
+        //         xpos--;
+        //      }
+        //      if (ypos < 200) {
+        //         ypos++;
+        //      }
+        //      if (ypos >200) {
+        //         ypos--;
+        //      }
+        //      elem.style.left=xpos+"px";
+        //      elem.style.top=ypos+"px";
+        //      movement=setTimeout("move()",10);
+        // }
+        function movee(elementID,final_x,final_y,interval) {
+            var elem=document.getElementById("message");
+            var xpos =parseInt(elem.style.left);
+            var ypos =parseInt(elem.style.top);
+            if (xpos ==final_x && ypos ==final_y) {
+                return true;
+            }
+            if (xpos < final_x) {
+                xpos++;
+             }
+             if (xpos >final_x) {
+                xpos--;
+             }
+             if (ypos < final_y) {
+                ypos++;
+             }
+             if (ypos >final_y) {
+                ypos--;
+             }
+             elem.style.left=xpos+"px";
+             elem.style.top=ypos+"px";
+             var lll = "movee('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+             movement =setTimeout(lll,interval);
+        }
+		
+		addLoadEvent(posi);
+        // addLoadEvent(move);
+	</script>
+</body>
+</html>

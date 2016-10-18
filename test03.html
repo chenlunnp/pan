@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<a href="http://www.baidu.com/"class="popup">baidu </a>                                                                                                         
+  <script>
+   
+    
+    function popUp(winURL){
+      window.open(winURL, "popup", "width=320,height = 480");
+    }
+
+    window.onload=function() {
+     
+      var  links=document.getElementsByTagName("a");        //把文档所有链接放到links
+      for (var i=0;i < links.length;i++) {          
+          if (links[i].getAttribute("class")=="popup") {   //如果链接属等于popup，则应用popUp函数
+            links[i].onclick=function() {
+              popUp(this.getAttribute("href"));         
+              return false;                                  //quxiao
+            }
+         }
+      }
+    }
+  
+  </script>
+  
+</body>
+</html>
